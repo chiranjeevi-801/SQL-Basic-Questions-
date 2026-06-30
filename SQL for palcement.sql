@@ -128,3 +128,19 @@ order by dept_id desc;
 
 select  *from employees 
 order  by emp_id desc;
+
+
+
+-- 4) GROUP BY (Groups rows having the same value.Mostly used with aggregate functions.)
+
+SELECT emp_id,
+SUM(salary)
+FROM Orders
+GROUP BY Employees;
+
+select * from employees;
+
+
+
+
+
