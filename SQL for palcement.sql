@@ -1,3 +1,6 @@
+
+
+
 create database practice_db;
 show databases;
  use practice_db;
@@ -36,7 +39,7 @@ INSERT INTO Employees VALUES
 (108,'Harry',26,'Bangalore',52000,3);
 
 
--- 1. SELECT
+-- 1. SELECT (SELECT is used to retrieve data from a table.)
 
 
 select*from Employees;
@@ -74,7 +77,7 @@ INSERT INTO Employees (emp_id, emp_name, age, city, salary, dept_id)
 VALUES (112, 'Rahul', 24, 'Delhi', 48000, 3);
 
 
----- WHERE
+-- ---- WHERE (WHERE filters records,Show only rows that satisfy a condition.)
 
 select * from Employees
 where salary >50000; 
@@ -118,7 +121,7 @@ order by salary DESC;
 
 select * from Employees
 order by age desc;
-
+       
 select * from Employees
 order by emp_name desc;
 
@@ -135,10 +138,24 @@ order  by emp_id desc;
 
 SELECT emp_id,
 SUM(salary)
-FROM Orders
-GROUP BY Employees;
+FROM employees
+GROUP BY emp_id;
+
+SELECT dept_id,
+SUM(salary)
+FROM employees
+GROUP BY dept_id;
 
 select * from employees;
+
+-- 5) HAVING (filters groups after GROUP BY)
+      
+        --  WHERE filters rows before grouping.
+		-- HAVING filters groups after grouping.
+   
+   
+
+
 
 
 
