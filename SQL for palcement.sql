@@ -154,8 +154,41 @@ select * from employees;
 		-- HAVING filters groups after grouping.
    
    
+   select emp_id,
+   sum(salary)
+   from employees 
+   group by emp_id
+   having sum(salary)>50000;
+   
+   
+   select emp_id,
+   sum(salary)
+   from employees 
+   group by emp_id
+   having sum(salary)<50000;
+   
+   
+
+select* from employees;
+
+SELECT dept_id,
+SUM(salary) AS total_salary
+FROM Employees
+GROUP BY dept_id
+HAVING SUM(salary) > 100000;
+
+select dept_id,
+COUNT(*) AS total_employees
+from employees
+GROUP BY dept_id
+HAVING count(*)>2;
 
 
+select city,
+COUNT(*) AS employee_count
+from employees
+GROUP BY city
+HAVING count(*)>2;
 
 
 
