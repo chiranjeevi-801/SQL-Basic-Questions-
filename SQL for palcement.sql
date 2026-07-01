@@ -197,6 +197,12 @@ WHERE salary > 50000
 GROUP BY dept_id
 HAVING SUM(salary) > 120000;
 
+SELECT dept_id,
+AVG(age) AS average_age
+FROM Employees
+GROUP BY dept_id
+HAVING AVG(age) > 27;
+
 
 
 
