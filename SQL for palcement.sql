@@ -204,6 +204,31 @@ GROUP BY dept_id
 HAVING AVG(age) > 27;
 
 
+-- 6. JOINS (Joins combine data from two or more tables using a common column.)
+
+       -- 1. INNER JOIN  (Returns only matching rows./ The INNER JOIN clause returns only rows that have matching values in both tables.)
+
+
+SELECT e.emp_name,
+d.dept_name
+FROM Employees e
+INNER JOIN Department1 d
+ON e.dept_id = d.dept_id;
+       
+
+
+-- 2. LEFT JOIN ( All rows from LEFT table .Matching rows from RIGHT table)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
