@@ -190,6 +190,13 @@ from employees
 GROUP BY city
 HAVING count(*)>2;
 
+SELECT dept_id,
+SUM(salary) AS total_salary
+FROM Employees
+WHERE salary > 50000
+GROUP BY dept_id
+HAVING SUM(salary) > 120000;
+
 
 
 
