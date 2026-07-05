@@ -300,6 +300,29 @@ WHERE salary =
 );
 
 
+SELECT MAX(salary) AS second_highest_salary
+FROM Employees
+WHERE salary <
+(
+    SELECT MAX(salary)
+    FROM Employees
+);
+
+
+SELECT MAX(salary) AS third_highest_salary
+FROM Employees
+WHERE salary <
+(
+    SELECT MAX(salary)
+    FROM Employees
+    WHERE salary <
+    (
+        SELECT MAX(salary)
+        FROM Employees
+    )
+);
+
+
 
 
 
