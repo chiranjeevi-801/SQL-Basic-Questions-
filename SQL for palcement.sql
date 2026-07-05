@@ -299,7 +299,9 @@ WHERE salary =
     FROM Employees
 );
 
-
+      
+         -- second_highest_salary
+        
 SELECT MAX(salary) AS second_highest_salary
 FROM Employees
 WHERE salary <
@@ -308,7 +310,8 @@ WHERE salary <
     FROM Employees
 );
 
-
+       -- third_highest_salary
+       
 SELECT MAX(salary) AS third_highest_salary
 FROM Employees
 WHERE salary <
@@ -322,16 +325,83 @@ WHERE salary <
     )
 );
 
+SELECT emp_name, salary
+FROM Employees
+WHERE salary =
+(
+    SELECT MAX(salary)
+    FROM Employees
+    WHERE salary <
+    (
+        SELECT MAX(salary)
+        FROM Employees
+        WHERE salary <
+        (
+            SELECT MAX(salary)
+            FROM Employees
+        )
+    )
+);
+
+
+    --  fourth_highest_salary
+SELECT MAX(salary) AS fourth_highest_salary
+FROM Employees
+WHERE salary <
+(
+    SELECT MAX(salary)
+    FROM Employees
+    WHERE salary <
+    (
+        SELECT MAX(salary)
+        FROM Employees
+        WHERE salary <
+        (
+            SELECT MAX(salary)
+            FROM Employees
+        )
+    )
+);
 
 
 
+SELECT DISTINCT salary
+FROM Employees
+ORDER BY salary DESC
+LIMIT 3,1;
+
+
+      --  fifth_highest_salary
+      
+      
+SELECT MAX(salary) AS fifth_highest_salary
+FROM Employees
+WHERE salary <
+(
+    SELECT MAX(salary)
+    FROM Employees
+    WHERE salary <
+    (
+        SELECT MAX(salary)
+        FROM Employees
+        WHERE salary <
+        (
+            SELECT MAX(salary)
+            FROM Employees
+            WHERE salary <
+            (
+                SELECT MAX(salary)
+                FROM Employees
+            )
+        )
+    )
+    
+);
 
 
 
-
-
-
-
-
-
-
+-- "Find the Nth highest salary."  
+SELECT DISTINCT salary
+FROM Employees
+ORDER BY salary DESC
+LIMIT 9,1;
