@@ -425,3 +425,7 @@ FROM Employees;
 -- 12. SUM()  (function is used to calculate the total sum of values within a numeric column.)
                                
                            --     The SUM() function ignores NULL values in the column.
+                           
+                           
+SELECT SUM(Salary)
+FROM Employees;
