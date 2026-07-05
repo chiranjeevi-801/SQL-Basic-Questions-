@@ -268,6 +268,38 @@ ON e.dept_id = d.dept_id;
 
 
 
+-- 10. Subquery (A query inside another query.)
+
+
+SELECT emp_name
+FROM Employees
+WHERE salary >
+(
+    SELECT AVG(salary)
+    FROM Employees
+);
+
+
+
+
+SELECT emp_name
+FROM Employees
+WHERE salary <
+(
+    SELECT AVG(salary)
+    FROM Employees
+);
+
+
+SELECT emp_name, salary
+FROM Employees
+WHERE salary =
+(
+    SELECT MAX(salary)
+    FROM Employees
+);
+
+
 
 
 
