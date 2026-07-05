@@ -226,6 +226,13 @@ FROM Employees e
 LEFT JOIN Department1 d
 ON e.dept_id = d.dept_id;
 
+SELECT d.dept_id,
+       d.dept_name,
+       e.emp_name
+FROM Department1 d
+LEFT JOIN Employees e
+ON d.dept_id = e.dept_id;
+
 
 
 
@@ -256,6 +263,8 @@ SELECT d.dept_id,
 FROM Employees e
 RIGHT JOIN Department1 d
 ON e.dept_id = d.dept_id;
+
+
 
 
 
