@@ -247,6 +247,15 @@ RIGHT JOIN Department1 d
 ON e.dept_id = d.dept_id;
 
 
+INSERT INTO Department1
+VALUES (5,'Sales');
+
+SELECT d.dept_id,
+       d.dept_name,
+       e.emp_name
+FROM Employees e
+RIGHT JOIN Department1 d
+ON e.dept_id = d.dept_id;
 
 
 
