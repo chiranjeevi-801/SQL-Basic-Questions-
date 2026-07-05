@@ -429,3 +429,34 @@ FROM Employees;
                            
 SELECT SUM(Salary)
 FROM Employees;
+
+
+-- SALES TABLE
+
+CREATE TABLE Sales(
+    order_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    quantity INT,
+    price INT
+);
+
+INSERT INTO Sales VALUES
+(1,'Laptop',2,50000),
+(2,'Mouse',5,500),
+(3,'Keyboard',3,1000),
+(4,'Monitor',2,15000);
+
+select * from sales;
+
+				
+                -- Calculate total sales amount.
+                
+SELECT SUM(quantity * price) AS total_sales
+FROM Sales;
+
+				-- Calculate total sales for each product.
+                
+SELECT product_name,
+       SUM(quantity * price) AS total_sales
+FROM Sales
+GROUP BY product_name;
