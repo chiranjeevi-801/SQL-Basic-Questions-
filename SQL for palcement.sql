@@ -237,6 +237,24 @@ ON e.dept_id = d.dept_id
 WHERE d.dept_id IS NULL;
 
 
+-- 3. RIGHT JOIN ( Opposite of LEFT JOIN.Returns All rows from RIGHT table Matching rows from LEFT table.)
+
+SELECT d.dept_id,
+       d.dept_name,
+       e.emp_name
+FROM Employees e
+RIGHT JOIN Department1 d
+ON e.dept_id = d.dept_id;
+
+
+
+
+
+
+
+
+
+
 
 
 
