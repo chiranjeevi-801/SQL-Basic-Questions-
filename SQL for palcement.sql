@@ -405,3 +405,17 @@ SELECT DISTINCT salary
 FROM Employees
 ORDER BY salary DESC
 LIMIT 9,1;
+
+
+
+
+-- 11. COUNT()   (The COUNT() function returns the number of rows that matches a specified criterion.)
+                
+              --   COUNT(*) - Counts the total number of rows in a table (including NULL values).
+			    -- COUNT(columnname) - Counts all non-null values in the column.
+		 -- 		COUNT(DISTINCT columnname) - Counts only the unique, non-null values in the colum
+
+
+
+SELECT COUNT(*)
+FROM Employees;
