@@ -460,3 +460,11 @@ SELECT product_name,
        SUM(quantity * price) AS total_sales
 FROM Sales
 GROUP BY product_name;
+
+			-- Calculate total sales greater than ₹20,000.
+            
+SELECT product_name,
+       SUM(quantity * price) AS total_sales
+FROM Sales
+GROUP BY product_name
+HAVING SUM(quantity * price) > 20000;
