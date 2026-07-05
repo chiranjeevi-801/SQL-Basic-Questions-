@@ -468,3 +468,14 @@ SELECT product_name,
 FROM Sales
 GROUP BY product_name
 HAVING SUM(quantity * price) > 20000;
+
+
+
+			-- Find the product with the highest sales.
+
+SELECT product_name,
+       SUM(quantity * price) AS total_sales
+FROM Sales
+GROUP BY product_name
+ORDER BY total_sales DESC
+LIMIT 1;
