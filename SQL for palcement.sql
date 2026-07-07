@@ -519,14 +519,70 @@ select avg(salary) as average_salary
 from employees
 where age>25;
 
-
+--  Average salary of employees in the IT department
 
 select avg(salary) as average_salary
 from employees
 where dept_id = 2 ; 
 
 
+  --     Average salary of employees in Bangalore
+  
+SELECT AVG(salary) AS average_salary
+FROM Employees
+WHERE city = 'Bangalore';
 
+use practice_db;
+
+
+-- MAX() [Returns highest value.]
+         -- The MAX() function returns the largest value of the selected column.
+        --  The MAX() function works with numeric, string, and date data types. 
+  
+  
+--   Find the highest salary      
+select max(salary)
+from employees;
+
+SELECT MAX(salary) AS highest_salary
+FROM Employees;
+
+
+
+  --  Find the oldest employee's age
+  
+SELECT MAX(age) AS oldest_employee
+FROM Employees;
+
+
+
+-- . Find the highest employee ID
+
+SELECT MAX(emp_id) AS highest_emp_id
+FROM Employees;
+
+
+--  Find the highest salary in the IT department
+
+select max(salary) as highest_salary
+from employees
+where dept_id =2;
+
+select max(salary) as highest_salary
+from employees
+where dept_id =1;
+
+select max(salary) as highest_salary
+from employees
+where dept_id =3;
+
+-- Find the highest salary in Bangalore
+
+select max(salary) as higest_salary 
+from employees 
+where city ='bangalore';
+
+select * from employees;
 
 
 
