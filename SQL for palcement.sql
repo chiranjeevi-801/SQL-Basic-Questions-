@@ -509,8 +509,21 @@ SELECT dept_id,
        AVG(salary) AS average_salary
 FROM Employees
 GROUP BY dept_id;
+  
+  
+  
+  
+   -- Average salary of employees older than 25
+
+select avg(salary) as average_salary
+from employees
+where age>25;
 
 
+
+select avg(salary) as average_salary
+from employees
+where dept_id = 2 ; 
 
 
 
