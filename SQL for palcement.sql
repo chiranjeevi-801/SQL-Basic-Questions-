@@ -488,3 +488,7 @@ LIMIT 1;
            
 SELECT AVG(Salary)
 FROM Employees;
+
+
+SELECT AVG(quantity * price) AS average_sales
+FROM Sales;
