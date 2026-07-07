@@ -484,7 +484,7 @@ LIMIT 1;
 
 -- 13) AVG() [Calculates average./The AVG() function returns the average value of a numeric column.]
            --   The AVG() function ignores NULL values in the column.
-           
+           -- AVG() is an Aggregate Function that returns the average (mean) value of a numeric column.
            
 SELECT AVG(Salary)
 FROM Employees;
@@ -492,3 +492,15 @@ FROM Employees;
 
 SELECT AVG(quantity * price) AS average_sales
 FROM Sales;
+
+select * from sales;
+
+
+SELECT AVG(age) AS average_age
+FROM Employees;
+
+
+
+
+
+
