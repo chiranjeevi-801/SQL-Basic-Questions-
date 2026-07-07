@@ -496,8 +496,21 @@ FROM Sales;
 select * from sales;
 
 
+
+
+-- Find the average age
 SELECT AVG(age) AS average_age
 FROM Employees;
+
+
+
+-- Find the average salary department-wise
+SELECT dept_id,
+       AVG(salary) AS average_salary
+FROM Employees
+GROUP BY dept_id;
+
+
 
 
 
