@@ -43,8 +43,8 @@ INSERT INTO Employees VALUES
 
 
 select*from Employees;
-
 select*from Department1;
+
 
 SELECT * FROM Employees;
 
@@ -479,3 +479,12 @@ FROM Sales
 GROUP BY product_name
 ORDER BY total_sales DESC
 LIMIT 1;
+
+
+
+-- 13) AVG() [Calculates average./The AVG() function returns the average value of a numeric column.]
+           --   The AVG() function ignores NULL values in the column.
+           
+           
+SELECT AVG(Salary)
+FROM Employees;
