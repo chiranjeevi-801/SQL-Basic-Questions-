@@ -643,3 +643,10 @@ SELECT MIN(salary) AS minimum_salary
 FROM Employees
 WHERE dept_id = 2;
 
+
+
+SELECT dept_id,
+       MIN(salary) AS minimum_salary
+FROM Employees
+GROUP BY dept_id;
+
