@@ -585,4 +585,25 @@ where city ='bangalore';
 select * from employees;
 
 
+-- 15. MIN() [Returns lowest value.]
+
+--         The MIN() function returns the smallest value of the selected column.
+
+		-- The MIN() function works with numeric, string, and date data types. 
+        
+    
+    
+-- find the lowest salary by using min()
+    
+select min(salary) 
+from employees;
+
+SELECT MIN(salary) AS minimum_salary
+FROM Employees;
+
+select min(salary) as lowest_salary
+from employees
+where city ='bangalore';
+
+
 
