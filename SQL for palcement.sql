@@ -628,3 +628,18 @@ FROM Employees
 ORDER BY salary ASC
 LIMIT 1;
 
+
+-- youngest employees in the table 
+
+SELECT emp_name, age
+FROM Employees
+order by age asc
+limit 1;
+
+
+-- Find the minimum salary in the IT department
+
+SELECT MIN(salary) AS minimum_salary
+FROM Employees
+WHERE dept_id = 2;
+
