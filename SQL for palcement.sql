@@ -606,4 +606,25 @@ from employees
 where city ='bangalore';
 
 
+-- Find the youngest employee's age
+
+select min(age) as lowest_age
+from employees;
+
+
+-- . Find the youngest employee (Subquery)
+
+SELECT emp_name, age
+FROM Employees
+WHERE age =
+(
+    SELECT MIN(age)
+    FROM Employees
+);
+
+
+SELECT emp_name, salary
+FROM Employees
+ORDER BY salary ASC
+LIMIT 1;
 
