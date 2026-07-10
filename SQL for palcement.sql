@@ -716,8 +716,20 @@ GROUP BY dept_id;
 
 																	 -- Window Functions (Basic)
 
---      A window function performs calculations across a set of rows without grouping them into one row. Unlike GROUP BY, it keeps every original row in the result.  (OR)
+                          --      A window function performs calculations across a set of rows without grouping them into one row. Unlike GROUP BY, it keeps every original row in the result.  (OR)
 
---        A Window Function performs calculations across a set of rows without grouping them into a single row. Unlike GROUP BY, it does not reduce the number of rows.
+                          --        A Window Function performs calculations across a set of rows without grouping them into a single row. Unlike GROUP BY, it does not reduce the number of rows.
 
---        One of the most common window functions is ROW_NUMBER().
+                          --        One of the most common window functions is ROW_NUMBER().
+
+
+
+
+-- 1. ROW_NUMBER()
+
+SELECT emp_name,
+       salary,
+       ROW_NUMBER() OVER(ORDER BY salary DESC) AS row_num
+FROM Employees;
+
+
