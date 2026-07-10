@@ -743,3 +743,16 @@ SELECT emp_name,
 FROM Employees;
 
 
+
+
+-- 3. DENSE_RANK() [Like RANK(), but it doesn't skip numbers.]
+
+                 -- PostgreSQL / Oracle / MySQL: Use double quotes: "dense_rank"
+                 -- SQL Server (T-SQL): Use square brackets: [dense_rank]
+
+
+SELECT emp_name,
+       salary,
+       DENSE_RANK() OVER(ORDER BY salary DESC) AS "dense_rank"
+FROM Employees;
+
