@@ -842,4 +842,11 @@ FROM Employees;
                
 
 
+ -- Row number within each department
+ 
+SELECT emp_name,
+       dept_id,
+       ROW_NUMBER() OVER(PARTITION BY dept_id ORDER BY salary DESC) AS row_no
+FROM Employees;
+
 
