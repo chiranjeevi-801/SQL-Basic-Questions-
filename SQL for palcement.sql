@@ -1,11 +1,14 @@
 
-
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+-- creating DATABASE :----
 
 create database practice_db;
 show databases;
  use practice_db;
  
- 
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+-- creating table :---
+
  create table Employees(
 	emp_id int  primary key,
     emp_name varchar(50),
@@ -15,7 +18,9 @@ show databases;
     dept_id int
     );
     
-
+    
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+-- creating table :---
 	
  create table Department1(
 	dept_id int primary key,
@@ -39,7 +44,9 @@ INSERT INTO Employees VALUES
 (108,'Harry',26,'Bangalore',52000,3);
 
 
--- 1. SELECT (SELECT is used to retrieve data from a table.)
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+                                               -- 1. SELECT (SELECT is used to retrieve data from a table.)
 
 
 select*from Employees;
@@ -77,7 +84,12 @@ INSERT INTO Employees (emp_id, emp_name, age, city, salary, dept_id)
 VALUES (112, 'Rahul', 24, 'Delhi', 48000, 3);
 
 
--- ---- WHERE (WHERE filters records,Show only rows that satisfy a condition.)
+
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+
+                                       -- 2)  WHERE (WHERE filters records,Show only rows that satisfy a condition.)
+
 
 select * from Employees
 where salary >50000; 
@@ -97,9 +109,12 @@ select * from Employees
 where emp_id=111;
 
 
------ ORDERBY 
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
------ Ascending(normally it should be ascending  )
+                                                                        -----  3)  ORDERBY 
+
+															-- Ascending(normally it should be ascending  )
+                                                            -- Decending( we want to  use DESC )
 
 select * from Employees 
 ORDER BY salary ;
@@ -133,8 +148,11 @@ select  *from employees
 order  by emp_id desc;
 
 
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
--- 4) GROUP BY (Groups rows having the same value.Mostly used with aggregate functions.)
+                                                 -- 4) GROUP BY (Groups rows having the same value.Mostly used with aggregate functions.)
+
+
 
 SELECT emp_id,
 SUM(salary)
@@ -148,10 +166,14 @@ GROUP BY dept_id;
 
 select * from employees;
 
--- 5) HAVING (filters groups after GROUP BY)
+
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+
+                                                               -- 5) HAVING (filters groups after GROUP BY)
       
-        --  WHERE filters rows before grouping.
-		-- HAVING filters groups after grouping.
+                                                                                       --  WHERE filters rows before grouping.
+																						-- HAVING filters groups after grouping.
    
    
    select emp_id,
@@ -204,10 +226,20 @@ GROUP BY dept_id
 HAVING AVG(age) > 27;
 
 
--- 6. JOINS (Joins combine data from two or more tables using a common column.)
 
-       -- 1. INNER JOIN  (Returns only matching rows./ The INNER JOIN clause returns only rows that have matching values in both tables.)
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 
+
+                                                 -- 6. JOINS (Joins combine data from two or more tables using a common column.)
+
+                                                           -- 1. INNER JOIN  (Returns only matching rows./ The INNER JOIN clause returns only rows that have matching values in both tables.)
+														   -- 2. LEFT JOIN ( All rows from LEFT table .Matching rows from RIGHT table)
+                                                           -- 3. RIGHT JOIN ( Opposite of LEFT JOIN.Returns All rows from RIGHT table Matching rows from LEFT table.)
+
+
+
+
+-- 1. INNER JOIN  (Returns only matching rows./ The INNER JOIN clause returns only rows that have matching values in both tables.)
 
 SELECT e.emp_name,
 d.dept_name
@@ -265,10 +297,10 @@ RIGHT JOIN Department1 d
 ON e.dept_id = d.dept_id;
 
 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
--- 10. Subquery (A query inside another query.)
+                                                              -- 10. Subquery (A query inside another query.)
 
 
 SELECT emp_name
@@ -278,7 +310,6 @@ WHERE salary >
     SELECT AVG(salary)
     FROM Employees
 );
-
 
 
 
@@ -299,6 +330,8 @@ WHERE salary =
     FROM Employees
 );
 
+
+
       
          -- second_highest_salary
         
@@ -309,6 +342,8 @@ WHERE salary <
     SELECT MAX(salary)
     FROM Employees
 );
+
+
 
        -- third_highest_salary
        
@@ -363,7 +398,7 @@ WHERE salary <
     )
 );
 
-
+-- (OR)
 
 SELECT DISTINCT salary
 FROM Employees
@@ -407,13 +442,14 @@ ORDER BY salary DESC
 LIMIT 9,1;
 
 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
--- 11. COUNT()   (The COUNT() function returns the number of rows that matches a specified criterion.)
+                                      -- 11. COUNT()   (The COUNT() function returns the number of rows that matches a specified criterion.)
                 
-              --   COUNT(*) - Counts the total number of rows in a table (including NULL values).
-			    -- COUNT(columnname) - Counts all non-null values in the column.
-		 -- 		COUNT(DISTINCT columnname) - Counts only the unique, non-null values in the colum
+                                                           --   COUNT(*) - Counts the total number of rows in a table (including NULL values).
+			                                                 -- COUNT(columnname) - Counts all non-null values in the column.
+		                                             -- 		COUNT(DISTINCT columnname) - Counts only the unique, non-null values in the colum
+
 
 
 
@@ -421,15 +457,20 @@ SELECT COUNT(*)
 FROM Employees;
 
 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
--- 12. SUM()  (function is used to calculate the total sum of values within a numeric column.)
+
+                                      -- 12. SUM()  (function is used to calculate the total sum of values within a numeric column.)
                                
-                           --     The SUM() function ignores NULL values in the column.
+                                                 --     The SUM() function ignores NULL values in the column.
                            
                            
 SELECT SUM(Salary)
 FROM Employees;
 
+
+
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -- SALES TABLE
 
@@ -448,20 +489,23 @@ INSERT INTO Sales VALUES
 
 select * from sales;
 
+
 				
-                -- Calculate total sales amount.
+-- Calculate total sales amount.
                 
 SELECT SUM(quantity * price) AS total_sales
 FROM Sales;
 
-				-- Calculate total sales for each product.
+
+-- Calculate total sales for each product.
                 
 SELECT product_name,
        SUM(quantity * price) AS total_sales
 FROM Sales
 GROUP BY product_name;
 
-			-- Calculate total sales greater than ₹20,000.
+
+	-- Calculate total sales greater than ₹20,000.
             
 SELECT product_name,
        SUM(quantity * price) AS total_sales
@@ -471,7 +515,7 @@ HAVING SUM(quantity * price) > 20000;
 
 
 
-			-- Find the product with the highest sales.
+	-- Find the product with the highest sales.
 
 SELECT product_name,
        SUM(quantity * price) AS total_sales
@@ -482,10 +526,14 @@ LIMIT 1;
 
 
 
--- 13) AVG() [Calculates average./The AVG() function returns the average value of a numeric column.]
-           --   The AVG() function ignores NULL values in the column.
-           -- AVG() is an Aggregate Function that returns the average (mean) value of a numeric column.
-           
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                                  -- 13) AVG() [Calculates average./The AVG() function returns the average value of a numeric column.]
+                                                 --   The AVG() function ignores NULL values in the column.
+                                                   -- AVG() is an Aggregate Function that returns the average (mean) value of a numeric column.
+     
+     
 SELECT AVG(Salary)
 FROM Employees;
 
@@ -513,7 +561,7 @@ GROUP BY dept_id;
   
   
   
-   -- Average salary of employees older than 25
+-- Average salary of employees older than 25
 
 select avg(salary) as average_salary
 from employees
@@ -526,7 +574,7 @@ from employees
 where dept_id = 2 ; 
 
 
-  --     Average salary of employees in Bangalore
+--   Average salary of employees in Bangalore
   
 SELECT AVG(salary) AS average_salary
 FROM Employees
@@ -535,9 +583,12 @@ WHERE city = 'Bangalore';
 use practice_db;
 
 
--- MAX() [Returns highest value.]
-         -- The MAX() function returns the largest value of the selected column.
-        --  The MAX() function works with numeric, string, and date data types. 
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                       -- MAX() [Returns highest value.]
+                                                                  -- The MAX() function returns the largest value of the selected column.
+																--  The MAX() function works with numeric, string, and date data types. 
+  
   
   
 --   Find the highest salary      
@@ -562,6 +613,7 @@ SELECT MAX(emp_id) AS highest_emp_id
 FROM Employees;
 
 
+
 --  Find the highest salary in the IT department
 
 select max(salary) as highest_salary
@@ -576,6 +628,7 @@ select max(salary) as highest_salary
 from employees
 where dept_id =3;
 
+
 -- Find the highest salary in Bangalore
 
 select max(salary) as higest_salary 
@@ -585,11 +638,15 @@ where city ='bangalore';
 select * from employees;
 
 
--- 15. MIN() [Returns lowest value.]
 
---         The MIN() function returns the smallest value of the selected column.
+-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-		-- The MIN() function works with numeric, string, and date data types. 
+
+                                                             -- 15. MIN() [Returns lowest value.]
+
+                                                                    --  The MIN() function returns the smallest value of the selected column.
+
+																	-- The MIN() function works with numeric, string, and date data types. 
         
     
     
@@ -606,10 +663,12 @@ from employees
 where city ='bangalore';
 
 
+
 -- Find the youngest employee's age
 
 select min(age) as lowest_age
 from employees;
+
 
 
 -- . Find the youngest employee (Subquery)
@@ -629,12 +688,14 @@ ORDER BY salary ASC
 LIMIT 1;
 
 
+
 -- youngest employees in the table 
 
 SELECT emp_name, age
 FROM Employees
 order by age asc
 limit 1;
+
 
 
 -- Find the minimum salary in the IT department
@@ -650,3 +711,13 @@ SELECT dept_id,
 FROM Employees
 GROUP BY dept_id;
 
+
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+																	 -- Window Functions (Basic)
+
+--      A window function performs calculations across a set of rows without grouping them into one row. Unlike GROUP BY, it keeps every original row in the result.  (OR)
+
+--        A Window Function performs calculations across a set of rows without grouping them into a single row. Unlike GROUP BY, it does not reduce the number of rows.
+
+--        One of the most common window functions is ROW_NUMBER().
