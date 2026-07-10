@@ -905,6 +905,12 @@ SELECT emp_name,
 FROM Employees;
 
 
+-- Minimum salary shown on every row
+
+SELECT emp_name,
+       salary,
+       MIN(salary) OVER() AS lowest_salary
+FROM Employees;
 
 
 
