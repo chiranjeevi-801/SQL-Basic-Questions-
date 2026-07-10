@@ -756,3 +756,37 @@ SELECT emp_name,
        DENSE_RANK() OVER(ORDER BY salary DESC) AS "dense_rank"
 FROM Employees;
 
+
+-- 4. Find the highest-paid employee
+
+SELECT *                -- using subquerry
+FROM
+(
+    SELECT emp_name,
+           salary,
+           DENSE_RANK() OVER(ORDER BY salary DESC) AS rnk
+    FROM Employees
+) t
+WHERE rnk = 1;
+
+
+(or)
+
+                            -- NOTE:---
+SELECT emp_name,           -- The QUALIFY clause is not working because it is not supported in MySQL.
+       salary,             --  The QUALIFY clause is supported in certain databases, such as:  Snowflake,BigQuery,Teradata
+       DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+FROM Employees
+QUALIFY rnk = 1;
+
+(or)
+
+SELECT emp_name, salary
+FROM Employees
+ORDER BY salary DESC
+LIMIT 1;
+
+
+
+
+
