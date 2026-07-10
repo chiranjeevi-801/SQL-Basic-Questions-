@@ -896,3 +896,15 @@ SELECT emp_name,
 FROM Employees;
 
 
+
+--  Maximum salary shown on every row
+
+SELECT emp_name,
+       salary,
+       MAX(salary) OVER() AS highest_salary
+FROM Employees;
+
+
+
+
+
