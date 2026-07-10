@@ -788,5 +788,58 @@ LIMIT 1;
 
 
 
+ -- Find the second highest-paid employee
+
+
+SELECT *
+FROM
+(
+    SELECT emp_name,
+           salary,
+           DENSE_RANK() OVER(ORDER BY salary DESC) AS rnk
+    FROM Employees
+) t
+WHERE rnk = 2;
+
+(or)
+
+SELECT emp_name, salary
+FROM Employees
+ORDER BY salary DESC
+LIMIT 2;
+
+
+
+ -- Find the third highest-paid employee
+
+
+SELECT *
+FROM
+(
+    SELECT emp_name,
+           salary,
+           DENSE_RANK() OVER(ORDER BY salary DESC) AS rnk
+    FROM Employees
+) t
+WHERE rnk = 3;
+
+(or)
+
+SELECT emp_name, salary
+FROM Employees
+ORDER BY salary DESC
+LIMIT 3;
+
+
+
+--  Rank employees within each department
+
+SELECT emp_name,
+       dept_id,  -- Each department starts ranking from 1.
+       salary,
+       RANK() OVER(PARTITION BY dept_id ORDER BY salary DESC) AS dept_rank
+FROM Employees;  
+               
+
 
 
