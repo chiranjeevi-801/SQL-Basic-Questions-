@@ -757,7 +757,7 @@ SELECT emp_name,
 FROM Employees;
 
 
--- 4. Find the highest-paid employee
+--  Find the highest-paid employee
 
 SELECT *                -- using subquerry
 FROM
@@ -842,6 +842,7 @@ FROM Employees;
                
 
 
+
  -- Row number within each department
  
 SELECT emp_name,
@@ -849,4 +850,19 @@ SELECT emp_name,
        ROW_NUMBER() OVER(PARTITION BY dept_id ORDER BY salary DESC) AS row_no
 FROM Employees;
 
+
+
+
+--  Highest-paid employee in each department
+
+SELECT *
+FROM
+(
+    SELECT emp_name,
+           dept_id,
+           salary,
+           ROW_NUMBER() OVER(PARTITION BY dept_id ORDER BY salary DESC) AS rn
+    FROM Employees
+) t
+WHERE rn = 1;
 
