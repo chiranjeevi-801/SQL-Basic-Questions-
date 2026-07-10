@@ -866,3 +866,16 @@ FROM
 ) t
 WHERE rn = 1;
 
+--  Lowest-paid employee in each department
+
+SELECT *
+FROM
+(
+    SELECT emp_name,
+           dept_id,
+           salary,
+           ROW_NUMBER() OVER(PARTITION BY dept_id ORDER BY salary ASC) AS rn
+    FROM Employees
+) t
+WHERE rn = 1;
+
