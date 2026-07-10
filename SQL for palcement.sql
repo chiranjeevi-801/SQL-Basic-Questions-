@@ -725,11 +725,21 @@ GROUP BY dept_id;
 
 
 
--- 1. ROW_NUMBER()
+-- 1. ROW_NUMBER() [Assigns a unique number to every row.]
 
 SELECT emp_name,
        salary,
        ROW_NUMBER() OVER(ORDER BY salary DESC) AS row_num
+FROM Employees;
+
+
+-- 2. RANK() [Employees with the same salary receive the same rank, but the next rank is skipped.]
+
+
+
+SELECT emp_name,
+       salary,
+       RANK() OVER(ORDER BY salary DESC) AS rank_no
 FROM Employees;
 
 
