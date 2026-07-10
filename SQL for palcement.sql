@@ -913,4 +913,12 @@ SELECT emp_name,
 FROM Employees;
 
 
+-- Department-wise average salary
+
+SELECT emp_name,
+       dept_id,
+       salary,
+       AVG(salary) OVER(PARTITION BY dept_id) AS dept_average
+FROM Employees;
+
 
