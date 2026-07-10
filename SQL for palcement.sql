@@ -879,3 +879,20 @@ FROM
 ) t
 WHERE rn = 1;
 
+
+-- Running total of salaries
+
+SELECT emp_name,
+       salary,
+       SUM(salary) OVER(ORDER BY emp_id) AS running_total
+FROM Employees;
+
+
+-- Average salary of all employees shown on every row
+
+SELECT emp_name,
+       salary,
+       AVG(salary) OVER() AS average_salary
+FROM Employees;
+
+
