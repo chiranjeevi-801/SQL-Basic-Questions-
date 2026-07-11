@@ -441,8 +441,18 @@ FROM Employees
 ORDER BY salary DESC
 LIMIT 9,1;
 
-
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-- 										 Aggregate Functions:---
+
+-- 											COUNT()
+-- 											SUM()
+-- 											AVG()
+-- 											MAX()
+-- 											MIN()
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
                                       -- 11. COUNT()   (The COUNT() function returns the number of rows that matches a specified criterion.)
                 
@@ -642,11 +652,11 @@ select * from employees;
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-                                                             -- 15. MIN() [Returns lowest value.]
+											-- 15. MIN() [Returns lowest value.]
 
-                                                                    --  The MIN() function returns the smallest value of the selected column.
+														--  The MIN() function returns the smallest value of the selected column.
 
-																	-- The MIN() function works with numeric, string, and date data types. 
+														-- The MIN() function works with numeric, string, and date data types. 
         
     
     
